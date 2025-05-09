@@ -1,5 +1,6 @@
 import io
 import os
+import pandas as pd
 import pyarrow as pa
 import pyarrow.parquet as pq
 
@@ -17,9 +18,14 @@ def upload_file_to_blob():
     remote_catalog = catalog.RemoteCatalog()
     dataset_url = os.getenv("DATASET_URL")
     df = remote_catalog[dataset_url]
+    # Resetting the index to turn 'country' and 'date' into columns
+    df_reset = df.reset_index()
+
+    # Ensuring that the 'date' column is converted to datetime and only the date is kept
+    df_reset['date'] = pd.to_datetime(df_reset['date'], errors='coerce').dt.date
 
     # Convert DataFrame to Parquet and store in memory buffer
-    table = pa.Table.from_pandas(df)
+    table = pa.Table.from_pandas(df_reset)
     buffer = io.BytesIO()
     pq.write_table(table, buffer)
     buffer.seek(0)
