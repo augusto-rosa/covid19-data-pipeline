@@ -21,8 +21,8 @@ SELECT
 FROM bronze.covid19data
 )
 SELECT
--- Gera o date_integer_id no formato YYYYMMDD como INT para uso como chave estrangeira (FK) nas tabelas fato,
--- proporcionando melhor performance em joins e menor consumo de espaço comparado com tipos DATE/VARCHAR
+-- Generates date_integer_id in the format YYYYMMDD as INT to be used as a foreign key (FK) in fact tables,
+-- providing better performance in joins and reduced storage compared to DATE/VARCHAR types
 	CAST(REPLACE(unique_date, '-', '') AS INT) AS date_integer_id
 ,	CAST(unique_date AS DATE) AS [date]
 ,	DATEPART(YEAR, unique_date) AS [year]
