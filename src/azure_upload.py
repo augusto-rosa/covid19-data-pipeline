@@ -4,21 +4,19 @@ import pandas as pd
 import pyarrow as pa
 import pyarrow.parquet as pq
 
-from azure.storage.blob import BlobServiceClient
+from azure.storage.filedatalake import DataLakeServiceClient
 from owid import catalog
 from datetime import date
 from dotenv import load_dotenv
 
-def upload_file_to_blob():
-
+def upload_file_to_data_lake():
     # Load environment variables
     load_dotenv()
 
-    # Load dataset from OWID Remote Catalog using URL from .env
+    # Load dataset from OWID catalog
     remote_catalog = catalog.RemoteCatalog()
     dataset_url = os.getenv("DATASET_URL")
     df = remote_catalog[dataset_url]
-    # Resetting the index to turn 'country' and 'date' into columns
     df_reset = df.reset_index()
 
     # Ensuring that the 'date' column is converted to datetime and only the date is kept
@@ -30,24 +28,29 @@ def upload_file_to_blob():
     pq.write_table(table, buffer)
     buffer.seek(0)
 
-    # Connect to Azure Blob Storage
+    # Connect to Azure Data Lake
     connection_string = os.getenv("AZURE_CONNECTION_STRING")
-    container_name = os.getenv("BLOB_STORAGE_CONTAINER")
-    blob_name = os.getenv("BLOB_NAME")
+    container_name = os.getenv("DATA_LAKE_CONTAINER")
+    file_name = os.getenv("DATA_LAKE_NAME")
 
-    # Creating a Blob Client Service
-    blob_service_client = BlobServiceClient.from_connection_string(connection_string)
+    # Use today's date as folder name
+    dir_name = str(date.today()) 
 
-    # Define blob path using today's date
-    current_file_date = date.today()
-    blob_path = f"{current_file_date}/{blob_name}"
+    # Connect to Azure Data Lake Gen2
+    data_lake_service_client = DataLakeServiceClient.from_connection_string(connection_string)
+    file_system_client = data_lake_service_client.get_file_system_client(container_name)
 
-    # Upload the Parquet buffer to Azure Blob Storage
-    blob_client = blob_service_client.get_blob_client(container=container_name, blob=blob_path)
-    blob_client.upload_blob(buffer, overwrite=True)
+    # Get or create the directory where the file will be placed
+    directory_client = file_system_client.get_directory_client(dir_name)
+    try:
+        directory_client.create_directory()
+    except Exception:
+        pass  # Ignore if directory already exists
 
-    print(f"File successfully uploaded to Azure blob storage. Path: {blob_path}")
+    # Create the file and upload the data
+    file_client = directory_client.create_file(file_name)
+    file_client.append_data(data=buffer.read(), offset=0, length=buffer.getbuffer().nbytes)
+    file_client.flush_data(buffer.getbuffer().nbytes)
 
-
-
+    print(f"Arquivo '{file_name}' enviado para o Data Lake no caminho '{container_name}/{dir_name}/'.")
 
