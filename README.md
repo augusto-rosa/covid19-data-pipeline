@@ -27,6 +27,19 @@ Azure SQL Database (gold.tables)
 
 Power BI - Direct connection to Azure SQL Database
 ```
+## 🔄 Azure Data Factory Pipeline (ETL Flow)
+
+Below is a screenshot of the ADF pipeline that orchestrates the data movement and transformation process:
+
+![adf_pipeline](https://github.com/user-attachments/assets/c71c1083-9d41-4961-bf05-42e0cfee2c80)
+
+This pipeline performs the following steps:
+1. **Lookup Views**: Reads metadata about views to be processed.
+2. **Set Variable**: Dynamically assigns view names.
+3. **ForEach Loop**: Iterates over each view and runs the copy activity.
+4. **Copy Activity**: Transfers data from Silver Layer to Gold Layer in Azure SQL.
+
+All activities are executed dynamically and succeeded during testing.
 
 ## 🔍 Why I Built This Project
 
