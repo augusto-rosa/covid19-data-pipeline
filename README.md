@@ -106,3 +106,16 @@ To support the dashboard visuals, a dimensional data model was designed using th
 
 ![tables_power_bi](https://github.com/user-attachments/assets/6125f803-f4c2-44e3-bff2-6017ed6d31b7)
 
+## ✅ Conclusion and Learnings
+This project helped reinforce important concepts in data modeling, ETL, and interactive dashboard creation. By connecting Power BI to an Azure SQL Database, the entire flow from raw data ingestion to actionable insights was demonstrated.
+
+Potential future improvements include:
+
+Adding international comparisons (e.g., USA, BR).
+
+Including demographic breakdowns such as gender or income groups.
+
+Automating data refreshes via Azure Data Factory.
+
+This end-to-end solution is a practical example of using modern cloud-based BI tools to tackle real-world public health challenges.
+
