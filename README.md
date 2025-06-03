@@ -86,5 +86,23 @@ I chose the Microsoft Azure ecosystem for the following reasons:
 ## 📈 Dashboard
 Power BI connects directly to the Azure SQL Database and visualizes trends such as annual cases, deaths, and vaccination progress in Canada over time.
 
+## 🧠 Key Metrics Presented
+**Total Confirmed Cases & Deaths**
+
+**Vaccination Progress (%)**
+
+**Annual Case Trends**
+
+**Covid-19 Tests**
+
+**Hospitalization and ICU Rates Over Time**
+
+The interactive dashboard allows the user to filter and drill down into data per year, month, or date group, which facilitates deeper insights into the evolution of the pandemic in Canada.
+
 ![image](https://github.com/user-attachments/assets/452559b9-0e6f-480c-b07b-e7ad9b6254eb)
+
+## 🧱 Data Model Overview
+To support the dashboard visuals, a dimensional data model was designed using the star schema approach. This consists of fact and dimension tables linked by primary and foreign keys, enabling optimized queries and performance in Power BI.
+
+![tables_power_bi](https://github.com/user-attachments/assets/6125f803-f4c2-44e3-bff2-6017ed6d31b7)
 
