@@ -64,6 +64,7 @@ I chose the Microsoft Azure ecosystem for the following reasons:
 ├── powerbi/
 ├── data/
 └── README.md
+```
 
 📈 Dashboard
 Power BI connects directly to the Azure SQL Database and visualizes trends such as annual cases, deaths, and vaccination progress in Canada over time.
