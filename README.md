@@ -1,9 +1,9 @@
-# COVID-19 Data Pipeline with Microsoft Azure
+# 🦠 COVID-19 Data Pipeline End To End with Microsoft Azure
 
 This project is a fully cloud-based data pipeline built using Microsoft's Azure ecosystem. It ingests COVID-19 data from [Our World in Data](https://ourworldindata.org/coronavirus), processes it through various layers of transformation, and stores the curated data in an Azure SQL Database for visualization in Power BI.
 
 ## 🧪 Pipeline Overview
-
+```
 Python API Our World in Data
 ↓
 
@@ -23,6 +23,7 @@ Azure SQL Database (gold.tables)
 ↓
 
 Power BI - Direct connection to Azure SQL Database
+```
 
 ## 🔍 Why I Built This Project
 
@@ -66,7 +67,7 @@ I chose the Microsoft Azure ecosystem for the following reasons:
 └── README.md
 ```
 
-📈 Dashboard
+## 📈 Dashboard
 Power BI connects directly to the Azure SQL Database and visualizes trends such as annual cases, deaths, and vaccination progress in Canada over time.
 
 ![image](https://github.com/user-attachments/assets/452559b9-0e6f-480c-b07b-e7ad9b6254eb)
