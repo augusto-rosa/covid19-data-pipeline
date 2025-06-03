@@ -8,22 +8,22 @@ This project is a fully cloud-based data pipeline built using Microsoft's Azure 
 ## 🧪 Pipeline Overview
 ```
 Python API Our World in Data
-↓
+          ↓
 
 Azure Data Lake Gen2 (parquet)
-↓
+          ↓
 
 Synapse Serverless - VIEW bronze.covid19data
-↓
+          ↓
 
 Synapse Serverless - VIEW silver.tables (SQL transformations)
-↓
+          ↓
 
 Azure Data Factory - Loop + Copy Activity
-↓
+          ↓
 
 Azure SQL Database (gold.tables)
-↓
+          ↓
 
 Power BI - Direct connection to Azure SQL Database
 ```
@@ -73,13 +73,19 @@ I chose the Microsoft Azure ecosystem for the following reasons:
 
 ```bash
 .
-├── pipeline/
-│   ├── ingestion/
-│   ├── transformation/
-│   └── utils/
-├── notebooks/
+├── er_diagram/
 ├── powerbi/
-├── data/
+├── sql/
+│   ├── Bronze/bronze_covid19data.sql
+│   ├── Silver/
+│	      ├── Dimensions/
+│	      ├── Facts/
+│   └── Gold/
+│	      ├── Dimensions/
+│	      ├── Facts/
+├── src/
+│    ├── azure_upload.py
+├── main.py
 └── README.md
 ```
 
