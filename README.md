@@ -113,8 +113,6 @@ Potential future improvements include:
 
 Adding international comparisons (e.g., USA, BR).
 
-Including demographic breakdowns such as gender or income groups.
-
 Automating data refreshes via Azure Data Factory.
 
 This end-to-end solution is a practical example of using modern cloud-based BI tools to tackle real-world public health challenges.
