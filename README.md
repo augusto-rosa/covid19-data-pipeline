@@ -1,6 +1,6 @@
 # 🦠 COVID-19 Data Pipeline End To End with Microsoft Azure
 
-This project is a fully cloud-based data pipeline built using Microsoft's Azure ecosystem. It ingests COVID-19 data from [Our World in Data](https://ourworldindata.org/coronavirus), processes it through various layers of transformation, and stores the curated data in an Azure SQL Database for visualization in Power BI.
+This project is a fully cloud-based data pipeline built using **Microsoft's Azure ecosystem**. It ingests COVID-19 data from [Our World in Data](https://ourworldindata.org/coronavirus), processes it through various layers of transformation, and stores the curated data in an Azure SQL Database for visualization in Power BI.
 
 ## 🧭 Architecture Overview
 ![end-to-end-covid19-pandemic](https://github.com/user-attachments/assets/c9bcaa0a-ca43-4489-8992-459972b12bc4)
