@@ -108,7 +108,7 @@ The interactive dashboard allows the user to filter and drill down into data per
 ![image](https://github.com/user-attachments/assets/452559b9-0e6f-480c-b07b-e7ad9b6254eb)
 
 ## 🧱 Data Model Overview
-To support the dashboard visuals, a dimensional data model was designed using the star schema approach. This consists of fact and dimension tables linked by primary and foreign keys, enabling optimized queries and performance in Power BI.
+To support the dashboard visuals, a dimensional data model was designed using the **star schema** approach. This consists of fact and dimension tables linked by primary and foreign keys, enabling optimized queries and performance in Power BI.
 
 ![tables_power_bi](https://github.com/user-attachments/assets/6125f803-f4c2-44e3-bff2-6017ed6d31b7)
 
@@ -121,5 +121,5 @@ Adding international comparisons (e.g., USA, BR).
 
 Automating data refreshes via Azure Data Factory.
 
-This end-to-end solution is a practical example of using modern cloud-based BI tools to tackle real-world public health challenges.
+💡 This end-to-end solution is a practical example of using modern cloud-based BI tools to deal with real-world public health challenges.
 
