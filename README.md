@@ -121,5 +121,5 @@ Adding international comparisons (e.g., USA, BR).
 
 Automating data refreshes via Azure Data Factory.
 
-💡 This end-to-end solution is a practical example of using modern cloud-based BI tools to deal with real-world public health challenges.
+🏆 This end-to-end solution is a practical example of using modern cloud-based BI tools to deal with real-world public health challenges.
 
