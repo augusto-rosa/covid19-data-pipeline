@@ -39,7 +39,7 @@ This pipeline performs the following steps:
 3. **ForEach Loop**: Iterates over each view and runs the copy activity.
 4. **Copy Activity**: Transfers data from Silver Layer to Gold Layer in Azure SQL.
 
-All activities are executed dynamically and succeeded during testing.
+✅ All activities are executed dynamically and succeeded during testing.
 
 ## 🔍 Why I Built This Project
 
